@@ -61,5 +61,5 @@ def find_language_facts(languages, language_name, fact_index = 0)
   #                 initial_release: 'December 4, 1995',
   #                 is_beautiful?: false }
   # }
-  languages.dig(language_name).dig(:facts).dig(fact_index)
+  languages.dig(language_name, :facts, fact_index)
 end
