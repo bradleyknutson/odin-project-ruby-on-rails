@@ -11,7 +11,6 @@ def bubble_sort(arr)
         arr[i] = arr[i + 1]
         arr[i + 1] = temp
         unsorted = true
-        p arr
       end
       i += 1
     end
@@ -19,4 +18,4 @@ def bubble_sort(arr)
   arr
 end
 
-bubble_sort([4,3,78,2,0,2])
+p bubble_sort([4,3,78,2,0,2])
