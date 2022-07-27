@@ -1,7 +1,9 @@
 class Game
   @@colors = ["blue", "red", "green", "white", "red", "purple"]
+
   def initialize(num_of_colors)
     @secret_colors = [];
+    @turn = 0
     generate_colors(num_of_colors)
   end
 
@@ -43,12 +45,20 @@ class Game
 
   public
 
+  def play
+    puts 'Please enter 4 colors to guess'
+    player_guess = [gets.chomp, gets.chomp, gets.chomp, gets.chomp]
+    @turn += 1
+    guess(player_guess)
+  end
+
   def guess(arr)
+    p @turn
     # Check if it's equal
     return true if @secret_colors.eql?(arr)
 
-    check_matches(arr)
-
+    p check_matches(arr)
+    play
   end
 end
 
