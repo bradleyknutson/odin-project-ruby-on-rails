@@ -46,16 +46,19 @@ class Game
   public
 
   def play
-    puts 'Please enter 4 colors to guess'
-    player_guess = [gets.chomp, gets.chomp, gets.chomp, gets.chomp]
+    puts 'Please enter 4 colors to guess, separated by spaces'
+    puts "Possible colors: #{@@colors}"
+    player_guess = gets.chomp.split(' ')
     @turn += 1
     guess(player_guess)
   end
 
   def guess(arr)
-    p @turn
     # Check if it's equal
-    return true if @secret_colors.eql?(arr)
+    if @secret_colors.eql?(arr)
+      puts "You won after #{@turn} turns!"
+      return
+    end
 
     p check_matches(arr)
     play
